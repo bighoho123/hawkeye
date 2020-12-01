@@ -18,5 +18,9 @@
     "puppeteer": "^5.5.0"
   },
   "devDependencies": {},
-  "description": ""
+  "description": "🦅 Automated browser testing script",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bighoho123/hawkeye.git"
+  }
 }
