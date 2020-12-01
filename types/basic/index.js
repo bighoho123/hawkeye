@@ -27,7 +27,7 @@ const basicCheck = (group) => {
     let urlFiles = [];
     if (group == 'all') {
       urlFiles = files.filter(f => f != 'index.js').map(group => path.resolve(workingDir, group));
-      log.info(`Running basic check for all groups`);
+      log.progress(`Running basic check for all groups`);
       log.info(`The configuration ulrs groups are loaded from:`);
       urlFiles.forEach(f => {
         log.info(`${f}`);
@@ -42,7 +42,7 @@ const basicCheck = (group) => {
       }
       const urlsConfig = path.resolve(workingDir, group);
       urlFiles = [urlsConfig];
-      log.info(`Running basic check for group - ${group}`);
+      log.progress(`Running basic check for group - ${group}`);
       log.info(`The configuration ulrs are loaded from [${urlsConfig}]`, true);
     }
     log.progress(`Loading urls...`)

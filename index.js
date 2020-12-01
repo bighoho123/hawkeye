@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const { program } = require('commander');
-const chalk = require('chalk');
+const npmFetch = require('npm-registry-fetch')
+const { log } = require("./helpers");
 
 const basicCheck = require('./types/basic');
 
@@ -15,4 +16,17 @@ program
       basicCheck(cmdObj.group);
   })
 
-program.parse(process.argv);
+// Check if there is any newer version
+const res = npmFetch.json('/@jinzheli/hawkeye', { timeout: 3000 })
+res.then(json => {
+  let latestVersion = json['dist-tags'].latest;
+  if (VERSION != latestVersion) {
+    log.info(`----------------------------------------------------------`)
+    log.info(`There is a newer version available - ${latestVersion}.`);
+    log.info(`Update by running`)
+    log.info(`npm i -g @jinzheli/hawkeye@latest`);
+    log.info(`----------------------------------------------------------`, true)
+  }
+}).finally(()=>{
+  program.parse(process.argv);
+})
