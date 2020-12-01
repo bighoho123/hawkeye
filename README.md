@@ -8,6 +8,8 @@ You can install the package either locally or globally.
 
 `npm i -g @jinzheli/hawkeye`
 
+If you'd like some example configuration to get started. Head to the [Github template repo](https://github.com/bighoho123/hawkeye-targets-template) and create one of your own based on that.
+
 ## Usage
 
 ### Basic (default)
